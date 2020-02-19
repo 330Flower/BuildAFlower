@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="css/loginEmail.css">
+<body>
+<form>
+<!--  <label for="email">First name:</label><br>-->
+    <input type="text" id="email" name="email" placeholder="email@email.com"><br>
+<!--  <label for="password">Last name:</label><br>-->
+    <input type="text" id="password" name="password" placeholder="Password"><br>
+    <!--  <label for="vpassword">Last name:</label><br>-->
+    <input type="text" id="vpassword" name="vpassword" placeholder="Verify Password"><br>
+</form>
+</body>
+
+<script>
+document.getElementById("email").addEventListener("keydown", function(e){
+    if(e.keyCode == 13) {
+        displayPassword();
+    }
+});
+function displayPassword() {
+    document.getElementById("password").style.display = "block";
+    document.getElementById("vpassword").style.display = "block";
+}
+</script>
