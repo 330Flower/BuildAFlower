@@ -1,3 +1,5 @@
+body {font-family: "Lato", sans-serif;}
+
 form {
     position: fixed;
     top: 33%;
@@ -6,7 +8,7 @@ form {
     height: 100%;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
     width: 50%;
     height: 10%;
 
@@ -15,14 +17,30 @@ input[type=text] {
     border-bottom: 2px solid #222222;
 
     margin-bottom: 2%;
+
+    font-size: 150%;
 }
 
-input[type=text]:focus {
+a {
+    text-decoration: none;
+}
+
+.continue {
+    font-size: 150%;
+    color: #222222;
+}
+
+.continue:hover {
+    color: #00bcd4;
+    transition: all 0.5s ease;
+}
+
+input[type=text]:focus, input[type=password]:focus {
     border-bottom: 2px solid #00bcd4;
-    transition: all 1s ease;
+    transition: all 1.25s ease;
 }
 
-#password, #vpassword {
+#password {
     display: none;
 
 }
