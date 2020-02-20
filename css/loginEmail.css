@@ -42,7 +42,18 @@ input[type=text]:focus, input[type=password]:focus {
 
 }
 
-#password, #homepage{
-    display: none;
+.hide{
+    opacity: 0;
+    position: absolute;
+    transition: opacity 1s;
+}
 
+.active {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
 }
