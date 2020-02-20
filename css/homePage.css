@@ -1,8 +1,62 @@
-.settings{
+body {font-family: "Montserrat", sans-serif;}
+input[placeholder] {font-family: "Montserrat", sans-serif;}
+
+body, html {
+    height: 100%;
+}
+
+/*.mainMenu {*/
+
+/*}*/
+
+.achievements {
 
 }
-.continue{
+
+.goals {
 
 }
-.continue{
+
+.settings {
+
 }
+
+
+.mainMenu {
+    display: grid;
+    grid-template-rows: 100%;
+    grid-auto-columns: 40% 40% 20%;
+    grid-template-areas:
+            "ach goal set";
+
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+}
+
+#Y1 {
+    grid-area: ach;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#Y2 {
+    grid-area: goal;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#Y3 {
+    grid-area: set;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*#Y3.resize {*/
+/*    height: 100%;*/
+/*    width: auto;*/
+/*}*/
