@@ -3,6 +3,7 @@ input[placeholder] {font-family: "Montserrat", sans-serif;}
 
 body, html {
     height: 100%;
+    margin: 0px;
 }
 
 /*.mainMenu {*/
@@ -10,15 +11,34 @@ body, html {
 /*}*/
 
 .achievements {
+    position: absolute;
+    z-index: 1;
+    left: 7%;
+    top: 35%;
+    justify-self: center;
 
+    text-decoration: none;
 }
 
 .goals {
+    position: absolute;
+    z-index: 1;
+    left: 54%;
+    top: 35%;
+    justify-content: center;
 
+    text-decoration: none;
 }
 
 .settings {
+    position: absolute;
+    z-index: 1;
+    left: 82%;
+    top: 35%;
+    /*right: 98%;*/
+    /*justify-content: center;*/
 
+    text-decoration: none;
 }
 
 
@@ -32,6 +52,8 @@ body, html {
     flex-direction: row;
     align-items: flex-start;
     justify-content: flex-start;
+
+    margin: 0;
 
 }
 
