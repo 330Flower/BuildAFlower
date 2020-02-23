@@ -1,0 +1,95 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: 15% 85%;
+    grid-template-areas:
+    "header"
+    "main";
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/Y1.jpg");
+}
+* {
+    text-decoration: none;
+}
+.container{
+    min-height: 100%;
+}
+
+.header {
+    grid-area: header;
+    background-color: red;
+    opacity: .8;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "menu1 menu2 menu3";
+    min-height: 50px;
+    height: 10%;
+    margin-bottom: 10px;
+}
+
+.menu1 {
+    grid-area: menu1;
+}
+
+.menu2 {
+    grid-area: menu2;
+    font-size: 250%;
+}
+
+
+.menu3 {
+    grid-area: menu3;
+}
+
+
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    height: 90%;
+}
+
+.item {
+    background: dimgrey;
+    padding: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
+    border-radius: 10px;
+    width: 31%;
+    height: 42%;
+    opacity: .7;
+}
+
+.item div{
+    font-size: 25px;
+}
+
+.continue {
+    font-size: 200%;
+    color: #222222;
+}
+
+.continue:hover {
+    color: #00bcd4;
+    transition: all 0.5s ease;
+    font-size: 250%;
+}
+
+.item:hover section {
+    font-size: 150%;
+}
+
+.item:hover {
+    opacity: 1;
+    transition: all 0.5s ease;
+}
