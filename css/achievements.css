@@ -1,0 +1,112 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-auto-rows: 15% 85%;
+    grid-template-areas:
+    "header"
+    "main";
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/Y1.jpg");
+}
+* {
+    text-decoration: none;
+}
+.container{
+    min-height: 100%;
+}
+
+.header {
+    grid-area: header;
+    background-color: red;
+    opacity: .8;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "menu1 menu2 menu3";
+    min-height: 50px;
+    height: 10%;
+    margin-bottom: 10px;
+}
+
+.menu1 {
+    grid-area: menu1;
+}
+
+.menu2 {
+    grid-area: menu2;
+    font-size: 250%;
+}
+
+
+.menu3 {
+    grid-area: menu3;
+}
+
+
+.main {
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 20px;
+    height: 90%;
+}
+
+img{
+    width: 50%;
+    height: 50%;
+    border-radius: 2%;
+}
+
+.item {
+    background: white;
+    padding: 10px;
+    margin-left: 22px;
+    margin-right: 22px;
+    width: 30%;
+    height: 42%;
+    opacity: .5;
+    transition: all .5s ease;
+    justify-content: space-around;
+    border-radius: 5%;
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flag_of_NATO.svg/1280px-Flag_of_NATO.svg.png"); */
+    /* background-size: cover; */
+}
+
+.item div{
+    font-size: 25px;
+}
+
+.item section{
+    font-size: 100%;
+    transition: all .5s ease;
+}
+
+.continue {
+    font-size: 200%;
+    color: #222222;
+    transition: all .5s ease;
+}
+
+.continue:hover {
+    color: #00bcd4;
+    transition: all 0.5s ease;
+    font-size: 250%;
+}
+
+.item:hover section {
+    font-size: 150%;
+    transition: all .5s ease;
+}
+
+.item:hover {
+    opacity: .9;
+    transition: all .5s ease;
+}
