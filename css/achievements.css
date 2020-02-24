@@ -12,12 +12,13 @@ body {
     padding: 0px;
     position: fixed;
     background-image: url("../images/Y1.jpg");
+    overflow-y: scroll;
 }
 * {
     text-decoration: none;
 }
 .container{
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 .header {
@@ -29,8 +30,7 @@ body {
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
     min-height: 120px;
-    height: 15%;
-    margin-bottom: 10px;
+    height: 10vh;
 }
 
 .menu1 {
@@ -53,11 +53,9 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 20px;
-    height: 90%;
+    height: 90vh;
     margin-top: 30px;
-    margin-left: 100px;
-    margin-right: 100px;
+    overflow-y: auto;
 }
 
 img{
@@ -68,18 +66,18 @@ img{
 
 .item {
     background: white;
-    padding: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 45px;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 35px;
     width: 29%;
-    height: 400px;
+    height: 500px;
     opacity: .5;
     transition: all .5s ease;
     justify-content: space-around;
     border-radius: 5%;
     /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flag_of_NATO.svg/1280px-Flag_of_NATO.svg.png"); */
     /* background-size: cover; */
+    overflow-y: scroll;
 }
 
 .item div{
