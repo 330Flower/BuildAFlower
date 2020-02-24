@@ -12,13 +12,13 @@ body {
     padding: 0px;
     position: fixed;
     background-image: url("../images/Y1.jpg");
-    overflow-y: scroll;
 }
 * {
     text-decoration: none;
 }
 .container{
     min-height: 100vh;
+    overflow-y: scroll;
 }
 
 .header {
@@ -55,7 +55,6 @@ body {
     flex-wrap: wrap;
     height: 90vh;
     padding-top: 30px;
-    overflow-y: auto;
     padding: 50px;
 }
 
