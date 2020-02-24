@@ -59,24 +59,40 @@ body {
     height: 90%;
 }
 
+img{
+    width: 50%;
+    height: 50%;
+    border-radius: 2%;
+}
+
 .item {
-    background: dimgrey;
+    background: white;
     padding: 10px;
-    margin-left: 12px;
-    margin-right: 12px;
-    border-radius: 10px;
-    width: 31%;
+    margin-left: 22px;
+    margin-right: 22px;
+    width: 30%;
     height: 42%;
-    opacity: .7;
+    opacity: .5;
+    transition: all .5s ease;
+    justify-content: space-around;
+    border-radius: 5%;
+    /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flag_of_NATO.svg/1280px-Flag_of_NATO.svg.png"); */
+    /* background-size: cover; */
 }
 
 .item div{
     font-size: 25px;
 }
 
+.item section{
+    font-size: 100%;
+    transition: all .5s ease;
+}
+
 .continue {
     font-size: 200%;
     color: #222222;
+    transition: all .5s ease;
 }
 
 .continue:hover {
@@ -87,9 +103,10 @@ body {
 
 .item:hover section {
     font-size: 150%;
+    transition: all .5s ease;
 }
 
 .item:hover {
-    opacity: 1;
-    transition: all 0.5s ease;
+    opacity: .9;
+    transition: all .5s ease;
 }
