@@ -29,7 +29,7 @@ body {
     grid-auto-rows: auto;
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
-    height: 8vh;
+    height: 70px;
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -38,16 +38,19 @@ body {
 
 .menu1 {
     grid-area: menu1;
+    padding-top: 12px;
 }
 
 .menu2 {
     grid-area: menu2;
     font-size: 250%;
+    padding-top: 5px;
 }
 
 
 .menu3 {
     grid-area: menu3;
+    padding-top: 12px;
 }
 
 
@@ -59,11 +62,13 @@ body {
     height: 90vh;
     /* padding-top: 30px; */
     padding: 50px;
-    margin-top: 8vh;
+    margin-top: 5vh;
 }
 
 img{
     width: 70%;
+    max-width: 70%;
+    max-height: 65%;
     height: auto;
     border-radius: 2%;
 }
@@ -82,14 +87,19 @@ img{
     /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Flag_of_NATO.svg/1280px-Flag_of_NATO.svg.png"); */
     /* background-size: cover; */
     overflow-y: scroll;
+    position: relative;
 }
 
 .item div{
-    font-size: 20px;
+    font-size: 1.2vw;
+    position: absolute;
+    left: 4vw;
+    bottom: 0;
+    margin-top: 20px;
 }
 
 .item section{
-    font-size: 100%;
+    font-size: 1.5vw;
     transition: all .5s ease;
 }
 
@@ -105,7 +115,7 @@ img{
 }
 
 .item:hover section {
-    font-size: 150%;
+    font-size: 2vw;
     transition: all .5s ease;
 }
 
