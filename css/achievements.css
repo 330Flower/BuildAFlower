@@ -1,6 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     display: grid;
     grid-template-columns: auto;
     grid-auto-rows: 15% 85%;
@@ -23,14 +23,17 @@ body {
 
 .header {
     grid-area: header;
-    background-color: red;
+    background-color: black;
     opacity: .8;
     display: grid;
     grid-auto-rows: auto;
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
-    min-height: 120px;
-    height: 10vh;
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    color: white;
 }
 
 .menu1 {
@@ -54,13 +57,14 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     height: 90vh;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     padding: 50px;
+    margin-top: 8vh;
 }
 
 img{
-    width: 50%;
-    height: 50%;
+    width: 70%;
+    height: auto;
     border-radius: 2%;
 }
 
@@ -70,7 +74,7 @@ img{
     margin-right: 2%;
     margin-bottom: 35px;
     width: 29%;
-    height: 500px;
+    height: 40vh;
     opacity: .5;
     transition: all .5s ease;
     justify-content: space-around;
@@ -81,7 +85,7 @@ img{
 }
 
 .item div{
-    font-size: 25px;
+    font-size: 20px;
 }
 
 .item section{
@@ -91,14 +95,13 @@ img{
 
 .continue {
     font-size: 200%;
-    color: #222222;
+    color: white;
     transition: all .5s ease;
 }
 
 .continue:hover {
     color: #00bcd4;
     transition: all 0.5s ease;
-    font-size: 250%;
 }
 
 .item:hover section {
