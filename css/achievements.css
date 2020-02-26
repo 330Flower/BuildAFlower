@@ -1,12 +1,6 @@
 body {
     font-family: "Montserrat", sans-serif;
     font-size: 20px;
-    display: grid;
-    grid-template-columns: auto;
-    grid-auto-rows: 15% 85%;
-    grid-template-areas:
-    "header"
-    "main";
     text-align: center;
     margin: 0px;
     padding: 0px;
@@ -22,14 +16,13 @@ body {
 }
 
 .header {
-    grid-area: header;
     background-color: black;
     opacity: .8;
     display: grid;
     grid-auto-rows: auto;
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
-    height: 70px;
+    height: 8vh;
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -55,14 +48,13 @@ body {
 
 
 .main {
-    grid-area: main;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     height: 90vh;
     /* padding-top: 30px; */
     padding: 50px;
-    margin-top: 5vh;
+    margin-top: 6vh;
 }
 
 img{
