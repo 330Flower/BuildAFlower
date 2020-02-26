@@ -22,10 +22,6 @@ input[type=text], input[type=password] {
     font-size: 150%;
 }
 
-p {
-    font-family: "Montserrat", sans-serif;
-}
-
 a {
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
@@ -34,7 +30,6 @@ a {
 .continue {
     font-size: 150%;
     color: #222222;
-    font-family: "Montserrat", sans-serif;
 }
 
 .continue:hover {
@@ -60,6 +55,6 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .disabled {
-  pointer-events: none;
-  cursor: default;
+    pointer-events: none;
+    cursor: default;
 }

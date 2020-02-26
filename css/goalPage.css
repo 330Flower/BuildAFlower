@@ -1,0 +1,31 @@
+body, html {
+    /*height: 100vh;*/
+    /*margin: 10px;*/
+    font-family: "Montserrat", sans-serif;
+}
+
+.row {
+    /*display: grid;*/
+    /*grid-template-rows: auto auto;*/
+    /*grid-auto-columns: auto auto;*/
+    /*grid-template-areas:*/
+    /*        "stk undr"*/
+    /*        "stk undr";*/
+    /*flex-direction: row;*/
+    /*align-items: flex-start;*/
+    /*justify-content: flex-start;*/
+}
+
+.stacks {
+    grid-area: stk;
+}
+
+#flower {
+    width: 200px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.underStacks {
+    /*grid-area: undr;*/
+}
