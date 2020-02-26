@@ -1,6 +1,8 @@
 
 body {
     font-family: "Montserrat", sans-serif;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 
 form {
@@ -22,6 +24,31 @@ input[type=text], input[type=password] {
     margin-bottom: 2%;
 
     font-size: 150%;
+}
+
+/*q {*/
+/*    !*display: inline;*!*/
+/*    font-size: 25px;*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    color: #00bcd4;*/
+/*    text-align: center;*/
+/*    padding-top: 250px;*/
+/*}*/
+
+/*q:before {*/
+/*    content: open-quote;*/
+/*}*/
+
+/*q:after {*/
+/*    content: close-quote;*/
+/*}*/
+
+header {
+    color: #00bcd4;
+    padding-top: 250px;
+    text-align: center;
+    font-size: 25px;
+    font-family: "Montserrat", sans-serif;
 }
 
 a {
