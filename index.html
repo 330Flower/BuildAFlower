@@ -11,10 +11,14 @@
 <!--  <label for="password">Last name:</label><br>-->
   <input class="hide" type="password" id="password" name="password" placeholder="Password (minimum of 8 characters)"><br>
 
+<!--  yemis new branch-->
+
 <!--&lt;!&ndash;  <label for="vpassword">Last name:</label><br>&ndash;&gt;-->
 <!--  <input type="password" id="vpassword" name="vpassword" value="Verify Password"><br>-->
+
   <a class="continue hide disabled" id="homepage" href="javascript:nextPage()">Continue</a>
 </form>
+<p>Don't have an account? Click here to <a class="signup" id="signup" href="signupEmail.html">SignUp</a></p>
 </body>
 
 <script>
@@ -59,6 +63,17 @@ function showPassword() {
 
 function nextPage() {
     window.open("home_page.html");
+}
+
+const signUp = () => {
+  const elements = document.querySelectorAll(".p");
+  for (elem of elements) {
+    elem.onclick = goSignUp();
+  }
+};
+
+function goSignUp() {
+  window.open("signupEmail.html")
 }
 
 function validateEmail(email)
