@@ -63,7 +63,7 @@ body {
 .main {
     display: grid;
     grid-template-columns: 70% 30%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 57% 43%;
     grid-template-areas: "checklist flower"
                          "checklist stats";
     height: 92vh;
@@ -221,4 +221,14 @@ input {
 {
   margin: 0 auto;
   display: block;
+}
+
+.hide{
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.active {
+    opacity: 1;
+    transition: opacity 1s;
 }
