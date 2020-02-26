@@ -60,9 +60,10 @@ body {
 img{
     width: 70%;
     max-width: 70%;
-    max-height: 65%;
+    max-height: 55%;
     height: auto;
     border-radius: 2%;
+    margin: 15px;
 }
 
 .item {
@@ -92,6 +93,7 @@ img{
 
 .item section{
     font-size: 1.5vw;
+    margin-top: 8px;
     transition: all .5s ease;
 }
 
@@ -107,8 +109,7 @@ img{
 }
 
 .item:hover section {
-    font-size: 2vw;
-    transition: all .5s ease;
+    transform: scale(1.3);
 }
 
 .item:hover {
