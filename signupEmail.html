@@ -1,0 +1,88 @@
+<link rel="stylesheet" href="css/signupEmail.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<head>
+    <title>Login</title>
+</head>
+<body>
+<form>
+    <!--  <label for="email">First name:</label><br>-->
+
+    <input type="text" id="email" name="email" placeholder="Enter your email address"><br>
+    <!--  <label for="password">Last name:</label><br>-->
+    <input class="hide" type="password" id="password" name="password" placeholder="Password (minimum of 8 characters)"><br>
+
+    <input class="hide" type="password" id="passwordCheck" name="passwordCheck" placeholder="Confirm Password"><br>
+
+    <!--  yemis new branch-->
+
+    <!--&lt;!&ndash;  <label for="vpassword">Last name:</label><br>&ndash;&gt;-->
+    <!--  <input type="password" id="vpassword" name="vpassword" value="Verify Password"><br>-->
+    <a class="continue hide disabled" id="homepage" href="javascript:nextPage()">Continue</a>
+</form>
+</body>
+
+<script>
+    pass = document.getElementById("password");
+    pass2 = document.getElementById("passwordCheck");
+    cont = document.getElementById("homepage");
+    email = document.getElementById("email");
+
+    email.addEventListener("keyup", function(e){
+        if(e.keyCode == 13) {
+            if(validateEmail(email.value)){
+                showPassword();
+            } else {
+                alert("The email you entered is not a valid email address, please check your input and try again!");
+            };
+        }
+    });
+    pass.addEventListener("keyup", function(e){
+        if(e.keyCode == 13) {
+            if (pass.value.length >= 8){
+                showConfirm();
+            } else {
+                alert("Passwords must match !")
+            }
+        }
+    });
+    pass2.addEventListener("keyup", function(e){
+        if(e.keyCode == 13) {
+            if (pass2.value.length >= 8){
+                window.open("home_page.html");
+            } else {
+                alert("Password too short, needs to be atleast 8 characters !")
+            }
+        } else {
+            if (pass2.value.length >= 8){
+                cont.classList.remove("hide");
+                cont.classList.add("active");
+                cont.classList.remove("disabled");
+            } else {
+                cont.classList.remove("active");
+                cont.classList.add("hide");
+                cont.classList.add("disabled");
+            }
+        }
+    });
+
+    function showPassword() {
+        pass.classList.remove("hide");
+        pass.classList.add("active");
+
+    }
+
+    function showConfirm() {
+        pass2.classList.remove("hide");
+        pass2.classList.add("active");
+    }
+
+    function nextPage() {
+        window.open("signupForm.html");
+    }
+
+    function validateEmail(email)
+    {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
+</script>
