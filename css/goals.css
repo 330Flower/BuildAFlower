@@ -74,14 +74,132 @@ body {
 
 .flower {
     grid-area: flower;
-    background: white;
+    background-image: url("https://cdn.pixabay.com/photo/2018/08/18/13/00/sunflower-3614728_1280.jpg");
+    opacity: 1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-size: 35px;
 }
 
 .stats {
+    font-size: 35px;
     grid-area: stats;
     background-color: red;
+    opacity: 1;
+    background-image: url("https://camo.githubusercontent.com/f32bf0587ce69c563b1f06e13dccffa7c74e4a2f/687474703a2f2f636c2e6c792f696d6167652f316a306a336c31523164325a2f636f6e74656e74");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
 }
 .checklist {
     grid-area: checklist;
-    background-color: green;
+    background-color: white;
+    overflow-y: scroll;
+    opacity: .8;
+}
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:hover {
+  background: #ddd;
+}
+
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+  color: green;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.listheader {
+  background-color: hotpink;
+  padding-bottom: 40px;
+  padding-left: 60px;
+  padding-top: 20px;
+  color: white;
+  text-align: center;
+}
+
+.listheader:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+  height: 40px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 15%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+  height: 40px;
+  box-sizing: border-box;
 }
