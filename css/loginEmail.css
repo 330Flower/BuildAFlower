@@ -34,6 +34,7 @@ a {
 .continue {
     font-size: 150%;
     color: #222222;
+    font-family: "Montserrat", sans-serif;
 }
 
 .continue:hover {

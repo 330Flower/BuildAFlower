@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="css/goals.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Goals</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="achievements.html">
+               <section class="menu1 continue">
+                  <div>Achievements</div>
+              </section>
+            </a>
+            <section class="menu2">
+                <div>Your Goals</div>
+            </section>
+            <a href="home_page.html">
+                <section class="menu3 continue">
+                    <div>Settings</div>
+                </section>
+            </a>
+        </div>
+        <div class="main">
+            <div class="flower">
+                <!-- <p> Your Flower </p> -->
+                <div class="svg-container">
+                    <svg id="svg-1" height="500px" width="500px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                       <circle r="10" cx="50" cy="50" fill="#493211" stroke="#231808" stroke-width=".5"></circle>
+                    </svg>
+                </div>
+            </div>
+            <div class="stats">
+                <p> Your Stats </p>
+            </div>
+            <div class="checklist">
+                <div id="listDiv" class="listheader">
+                    <h2>My Daily To Do List</h2>
+                    <input type="text" id="myInput" placeholder="New Goal...">
+                    <span onclick="newElement()" class="addBtn">Add</span>
+                </div>
+                <ul id="myUL">
+                    <li class="checked">Finish up the html for the goals page</li>
+                    <li class="checked">Finish up the html for the achievements page</li>
+                    <li>Finish up the html for the questionaires page</li>
+                    <li>Fix spacing, font-size, and colors in the css page</li>
+                    <li>Figure out svg and dynamically generate the flower</li>
+                    <li>Make a backend for the project</li>
+                    <li>Add a real graph and make everything more responsive</li>
+                    <li>Add a real graph and make everything more responsive</li>
+                    <li>Add a real graph and make everything more responsive</li>
+                    <li>Add a real graph and make everything more responsive</li>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+// Create a "close" button and append it to each list item
+newInput = document.getElementById("myInput");
+
+var counter = 0;
+var max = 0;
+
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+    if(ev.target.classList.contains('checked')){
+        if(!ev.target.classList.contains('accounted')) {
+            ev.target.classList.add('accounted');
+            if(counter < max) {
+                setTimeout(function () {
+                    showPetal(counter);
+                    counter += 1;
+                }, 10);
+            }
+        }
+    }
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("The input box is empty, write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+newInput.addEventListener("keyup", function(e){
+    if(e.keyCode == 13) {
+        if(newInput.value != ''){
+            newElement();
+        } else {
+            alert("The input box is empty, write something!");
+        };
+    }
+});
+
+function addFlower(){
+    flowerContainer = document.getElementById("svg-1");
+    flowerContainer.innerHTML = "";
+    var id = 0;
+    for (i = 30; i < 390; i += 30){
+        flowerContainer.innerHTML = flowerContainer.innerHTML + '<ellipse class="hide" id="flower' + id + '" rx="5" ry="20" cx="50" cy="50" fill="yellow" stroke="black" stroke-width=".5" transform="rotate('+ i +', 50, 50) translate(0 , -15)"/>';
+        id += 1;
+    }
+    max = id;
+    flowerContainer.innerHTML += '<circle r="10" cx="50" cy="50" fill="#493211" stroke="#231808" stroke-width=".5"></circle>';
+}
+
+function showPetal(id){
+    id = "flower" + id;
+    flowerPetal = document.getElementById(id);
+    flowerPetal.classList.remove("hide");
+    flowerPetal.classList.add("active");
+}
+
+function getChecked(){
+    listItems = document.querySelectorAll("li");
+    for (i = 0; i < listItems.length; i++){
+        if(listItems[i].classList.contains('checked') && !listItems[i].classList.contains('accounted')){
+            listItems[i].classList.add('accounted');
+            setTimeout(function () {
+                showPetal(counter);
+                counter += 1;
+            }, 100);
+        }
+    }
+}
+
+addFlower();
+
+setTimeout(function () {
+    getChecked();
+}, 20);
+
+</script>
