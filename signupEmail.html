@@ -78,6 +78,8 @@
 
     function nextPage() {
         window.open("signupForm.html");
+        sessionStorage.setItem('email', email.value);
+        sessionStorage.setItem('pass', pass.value);
     }
 
     function validateEmail(email)

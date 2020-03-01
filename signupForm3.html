@@ -14,4 +14,18 @@
     <a class="continue" href="home_page.html">continue</a>
 </form>
 </body>
+
+<script>
+    q6 = document.getElementById("q1");
+    q7 = document.getElementById("q2");
+    q8 = document.getElementById("q3");
+
+    function go() {
+        window.open("signupForm3.html");
+        sessionStorage.setItem("q6", q6.value);
+        sessionStorage.setItem("q7", q7.value);
+        sessionStorage.setItem("q8", q8.value);
+    }
+</script>
+
 </html>

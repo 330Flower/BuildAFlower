@@ -9,4 +9,17 @@
     <a class="continue" href="signupForm3.html">continue</a>
 </form>
 </body>
+
+<script>
+    q3 = document.getElementById("q1");
+    q4 = document.getElementById("q2");
+    q5 = document.getElementById("q3");
+
+    function go() {
+        window.open("signupForm3.html");
+        sessionStorage.setItem("q3", q3.value);
+        sessionStorage.setItem("q4", q4.value);
+        sessionStorage.setItem("q5", q5.value);
+    }
+</script>
 </html>

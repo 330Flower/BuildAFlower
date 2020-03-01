@@ -63,6 +63,8 @@ function showPassword() {
 
 function nextPage() {
     window.open("home_page.html");
+    sessionStorage.setItem('email', email.value);
+    sessionStorage.setItem('pass', pass.value);
 }
 
 function goSignUp() {
