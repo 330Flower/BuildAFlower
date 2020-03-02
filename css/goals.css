@@ -15,6 +15,7 @@ body {
 .container{
     min-height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .header {
@@ -62,7 +63,7 @@ body {
 
 .main {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 65% 35%;
     grid-template-rows: 57% 43%;
     grid-template-areas: "checklist flower"
                          "checklist stats";
@@ -84,15 +85,18 @@ body {
 }
 
 .stats {
-    font-size: 35px;
     grid-area: stats;
-    background-color: red;
-    opacity: 1;
-    background-image: url("https://camo.githubusercontent.com/f32bf0587ce69c563b1f06e13dccffa7c74e4a2f/687474703a2f2f636c2e6c792f696d6167652f316a306a336c31523164325a2f636f6e74656e74");
+    background-color: white;
+    opacity: .9;
+    font-size: 15px;
+    /* background-image: url("https://camo.githubusercontent.com/f32bf0587ce69c563b1f06e13dccffa7c74e4a2f/687474703a2f2f636c2e6c792f696d6167652f316a306a336c31523164325a2f636f6e74656e74");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-
+    background-position: center; */
+}
+.statstitle {
+    font-size: 25px;
+    /* padding-bottom: 5px; */
 }
 .checklist {
     grid-area: checklist;
@@ -166,7 +170,7 @@ ul li.checked::before {
 .listheader {
   background-color: hotpink;
   padding-bottom: 40px;
-  padding-left: 60px;
+  padding-left: 80px;
   padding-top: 20px;
   color: white;
   text-align: center;
@@ -231,4 +235,166 @@ input {
 .active {
     opacity: 1;
     transition: opacity 1s;
+}
+
+.day {
+  fill: #eee;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+.color0 { fill: #d6e685 }
+.color1 { fill: #44a340 }
+.color2 { fill: #28752d }
+.color3 { fill: #1e6823 }
+.color4 { fill: #365e2f }
+.color5 { fill: #144e12 }
+
+.results {
+  width: 90%;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  overflow-x: scroll;
+  font-size: 15px;
+}
+.js-legend {
+  padding-top: 10px;
+  position: relative;
+  display: flex;
+  max-width: 100%;
+  left: 67%;
+  padding-bottom: 10px;
+}
+
+.tooltip {
+	position: absolute;
+	z-index: 1070;
+	display: block;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: left;
+	text-align: start;
+	text-decoration: none;
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: normal;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+	white-space: normal;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	line-break: auto;
+}
+
+.tooltip.in {
+	filter: alpha(opacity=90);
+	opacity: .9;
+}
+
+.tooltip.top {
+	padding: 5px 0;
+	margin-top: -3px;
+}
+
+.tooltip.right {
+	padding: 0 5px;
+	margin-left: 3px;
+}
+
+.tooltip.bottom {
+	padding: 5px 0;
+	margin-top: 3px;
+}
+
+.tooltip.left {
+	padding: 0 5px;
+	margin-left: -3px;
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: 3px 8px;
+	color: #fff;
+	text-align: center;
+	background-color: #000;
+	border-radius: 4px;
+}
+
+.tooltip-arrow {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+}
+
+.tooltip.top .tooltip-arrow {
+	bottom: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000;
+}
+
+.tooltip.top-left .tooltip-arrow {
+	right: 5px;
+	bottom: 0;
+	margin-bottom: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000;
+}
+
+.tooltip.top-right .tooltip-arrow {
+	bottom: 0;
+	left: 5px;
+	margin-bottom: -5px;
+	border-width: 5px 5px 0;
+	border-top-color: #000;
+}
+
+.tooltip.right .tooltip-arrow {
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: #000;
+}
+
+.tooltip.left .tooltip-arrow {
+	top: 50%;
+	right: 0;
+	margin-top: -5px;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #000;
+}
+
+.tooltip.bottom .tooltip-arrow {
+	top: 0;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000;
+}
+
+.tooltip.bottom-left .tooltip-arrow {
+	top: 0;
+	right: 5px;
+	margin-top: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000;
+}
+
+.tooltip.bottom-right .tooltip-arrow {
+	top: 0;
+	left: 5px;
+	margin-top: -5px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000;
 }

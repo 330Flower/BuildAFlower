@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Goals</title>
+    <!-- Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.4.0/d3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -33,7 +37,15 @@
                 </div>
             </div>
             <div class="stats">
-                <p> Your Stats </p>
+                <div class="statstitle">
+                    <p> Your Stats For This Year </p>
+                </div>
+                <div class="results">
+                    <div class="js-heatmap"></div>
+                    <div class="js-months"></div>
+                </div>
+                <div class="js-legend"></div>
+                <a href="https://github.com/vinnyoodles/reddit-heatmap">Code borrowed from https://github.com/vinnyoodles/reddit-heatmap</a>
             </div>
             <div class="checklist">
                 <div id="listDiv" class="listheader">
@@ -48,6 +60,8 @@
                     <li>Fix spacing, font-size, and colors in the css page</li>
                     <li>Figure out svg and dynamically generate the flower</li>
                     <li>Make a backend for the project</li>
+                    <li>Add a real graph and make everything more responsive</li>
+                    <li>Add a real graph and make everything more responsive</li>
                     <li>Add a real graph and make everything more responsive</li>
                     <li>Add a real graph and make everything more responsive</li>
                     <li>Add a real graph and make everything more responsive</li>
@@ -177,5 +191,173 @@ addFlower();
 setTimeout(function () {
     getChecked();
 }, 20);
+
+var TYPE_TO_FIELDS_MAPPING = {
+  submitted: ['id', 'permalink', 'created', 'title', 'score', 'subreddit'],
+  comments: ['id', 'link_url', 'created', 'subreddit', 'link_title', 'body'],
+  upvoted: ['id', 'permalink', 'created', 'subreddit', 'title'],
+  downvoted: ['id', 'permalink', 'created', 'subreddit', 'title']
+};
+var CELL_SIZE = 18;
+var NUMBER_OF_COLORS = 6;
+
+$(document).ready(function() {
+  fetchRedditData("wsbgod")       // step 2 get data from reddit using input
+    .done(function(posted, comments, upvoted, downvoted) {
+      var data = formatData({ posted, comments, upvoted, downvoted }); // step 3 formats the data
+      createHeatMap(data, 2020, 2021);  // step 7 loads all the svgs
+  });
+});
+
+function fetchRedditData(user, votes) {
+  var types = ['submitted', 'comments'];
+  if (votes) types = types.concat(['upvoted', 'downvoted'])
+  var requests = types.map(function(type) {
+    return $.getJSON(`https://www.reddit.com/user/${user}/${type}.json?limit=100`)
+    .then(function(response) {
+      if (!response.data || !response.data.children.length) return [];
+
+      var fields = TYPE_TO_FIELDS_MAPPING[type];
+      return response.data.children.map(function(child) {
+        var table = {};
+        for (var i in fields) {
+          table[fields[i]] = child.data[fields[i]];
+        }
+        return table;
+      });
+    });
+  });
+
+  return $.when(...requests);
+}
+
+function formatData(data) {
+  var oldestDate = new Date();
+  console.log(data);
+  var maxCount = 0;
+  var dateTable = {};
+  for (var key in data) {
+    var value = data[key];
+    console.log(value);
+    if (!value || !value.length || !key) continue;
+
+    var lastDate = new Date(value[value.length - 1].created * 1000);
+    oldestDate = Math.min(oldestDate, lastDate);
+    value.forEach((entity) => {
+      var format = d3.timeFormat('%Y-%m-%d');
+      // Created is a date timestamp in seconds.
+      var date = format(new Date(entity.created * 1000));
+
+      if (dateTable[date]) {
+        var typeCount = dateTable[date][key];
+        dateTable[date][key] = typeCount ? typeCount + 1 : 1;
+        dateTable[date].count++;
+      } else {
+        dateTable[date] = { count: 1 };
+        dateTable[date][key] = 1;
+      }
+
+      maxCount = Math.max(maxCount, dateTable[date].count);
+    });
+  }
+
+  return {
+    startDate: new Date(oldestDate),
+    dates: dateTable,
+    maxCount
+  };
+}
+
+function createHeatMap(data, startYear, endYear) {
+  var width = 1000;
+  var height = 150;
+  var dx = 35;
+  var gridClass = 'js-date-grid day';
+  var formatColor = d3.scaleQuantize().domain([0, data.maxCount]).range(d3.range(NUMBER_OF_COLORS).map((d) => `color${d}`));
+  console.log(data);
+  var heatmapSvg = d3.select('.js-heatmap').selectAll('svg.heatmap')
+    .enter()
+    .append('svg')
+    .data(d3.range(startYear, endYear))
+    .enter()
+    .append('svg')
+      .attr('width', width)
+      .attr('height', height)
+      .attr('class', 'color')
+
+  // Add a grid for each day between the date range.
+  var dates = Object.keys(data.dates);
+  console.log(dates);
+  var rect = heatmapSvg.append('g')
+  .attr('transform', `translate(${dx},0)`);
+
+  rect.selectAll('.day')
+    // The heatmap will contain all the days in that year.
+    .data((d) => d3.timeDays(new Date(d, 0, 1), new Date(d + 1, 0, 1)))
+    .enter()
+    .append('rect')
+      .attr('class', gridClass)
+      .attr('width', CELL_SIZE)
+      .attr('height', CELL_SIZE)
+      .attr('x', (d) => d3.timeFormat('%U')(d) * CELL_SIZE)
+      .attr('y', (d) => d.getDay() * CELL_SIZE)
+      .attr('data-toggle', 'tooltip')
+      .datum(d3.timeFormat('%Y-%m-%d'))
+      // Add the grid data as a title attribute to render as a tooltip.
+      .attr('title', (d) => {
+        var countData = data.dates[d];
+        var date = d3.timeFormat('%b %d, %Y')(new Date(d));
+        if (!countData || !countData.count) return `No tasks completed on ${date}`;
+        else if (countData.count === 1) return `1 task completed on ${date}`;
+        else return `${countData.count} tasks completed on ${date}`;
+      })
+      .attr('date', (d) => d)
+      // Add bootstrap's tooltip event listener.
+      .call(() => $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+        placement: 'top',
+        position: { my: 'top' }
+      }))
+      // Add the colors to the grids.
+      .filter((d) => dates.indexOf(d) > -1)
+      .attr('class', (d) => `${gridClass} ${formatColor(data.dates[d].count)}`)
+
+  // Render x axis to show months
+  d3.select('.js-months').selectAll('svg.months')
+    .enter()
+    .append('svg')
+    .data([1])
+    .enter()
+    .append('svg')
+      .attr('width', 1000)
+      .attr('height', 50)
+    .append('g')
+      .attr('transform', 'translate(0,20)')
+      .selectAll('.month')
+      .data(() => d3.range(12))
+      .enter()
+      .append('text')
+        .attr('x', (d) => d * (4.5 * CELL_SIZE) + dx)
+        .text((d) => d3.timeFormat('%b')(new Date(0, d + 1, 0)));
+
+  // Render the grid color legend. This is for the legend
+  var legendSvg = d3.select('.js-legend').selectAll('svg.legend')
+    .enter()
+    .append('svg')
+    .data([1])
+    .enter()
+    .append('svg')
+      .attr('width', 800)
+      .attr('height', 20)
+    .append('g')
+      .selectAll('.legend-grid')
+      .data(() => d3.range(7))
+      .enter()
+      .append('rect')
+        .attr('width', CELL_SIZE)
+        .attr('height', CELL_SIZE)
+        .attr('x', (d) => d * CELL_SIZE + dx)
+        .attr('class', (d) => `day color${d - 1}`);
+}
 
 </script>
