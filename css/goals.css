@@ -26,6 +26,7 @@ body {
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
     min-height: 77px;
+    height: 8vh;
     position: fixed;
     width: 100%;
     z-index: 10;
