@@ -3,9 +3,9 @@
 <html>
 <body>
 <form>
-    <input type="text" id="q1" name="q1" placeholder="What should we call you?"><br>
-    <input type="text" id="q2" name="q2" placeholder="When we're you born? (mm/dd/yyyy)"><br>
-    <a class="continue" href="javascript:go()">continue</a>
+    <input class="active" type="text" id="q1" name="q1" placeholder="What should we call you?"><br>
+    <input class="hide" type="text" id="q2" name="q2" placeholder="When we're you born? (mm/dd/yyyy)"><br>
+    <a id="cont" class="continue hide" href="javascript:go()">continue</a>
 </form>
 </body>
 
@@ -13,8 +13,30 @@
     q1 = document.getElementById("q1");
     q2 = document.getElementById("q2");
 
+    cont = document.getElementById("cont");
+
+    q1.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            q2.classList.remove("hide");
+            q2.classList.add("active");
+        }
+    });
+
+    // TODO: add continue emerge when a valid date is input: requires date checking
+    q2.addEventListener("keyup", function(e){
+        var reg = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/ ;
+        if (e.keyCode == 13 && reg.test(q2.value)){
+            go();
+        } else {
+            if (reg.test(q2.value)) {
+                cont.classList.remove("hide");
+                cont.classList.add("active");
+            }
+        }
+    });
+
     function go() {
-        window.open("signupForm2.html");
+        location.href = "signupForm2.html";
         sessionStorage.setItem('q1', q1.value);
         sessionStorage.setItem('q2', q2.value);
     }

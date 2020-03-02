@@ -3,10 +3,10 @@
 <html>
 <body>
 <form>
-    <input type="text" id="q1" name="q1" placeholder="What's a bad habit you currently are struggling with?"><br>
-    <input type="text" id="q2" name="q2" placeholder="How does it negatively affect your life?"><br>
-    <input type="text" id="q3" name="q3" placeholder="What's one step you can take to improve your behavior?"><br>
-    <a class="continue" href="signupForm3.html">continue</a>
+    <input class="active" type="text" id="q1" name="q1" placeholder="What's a bad habit you currently are struggling with?"><br>
+    <input class="hide" type="text" id="q2" name="q2" placeholder="How does it negatively affect your life?"><br>
+    <input class="hide" type="text" id="q3" name="q3" placeholder="What's one step you can take to improve your behavior?"><br>
+    <a id="cont" class="continue hide" href="signupForm3.html">continue</a>
 </form>
 </body>
 
@@ -15,8 +15,33 @@
     q4 = document.getElementById("q2");
     q5 = document.getElementById("q3");
 
+    cont = document.getElementById("cont");
+
+    q3.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            q4.classList.remove("hide");
+            q4.classList.add("active");
+        }
+    });
+
+    q4.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            q5.classList.remove("hide");
+            q5.classList.add("active");
+        }
+    });
+
+    q5.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            go();
+        } else {
+            cont.classList.remove("hide");
+            cont.classList.add("active");
+        }
+    });
+
     function go() {
-        window.open("signupForm3.html");
+        location.href = "signupForm3.html";
         sessionStorage.setItem("q3", q3.value);
         sessionStorage.setItem("q4", q4.value);
         sessionStorage.setItem("q5", q5.value);

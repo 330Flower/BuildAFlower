@@ -8,10 +8,10 @@
 <header>List a few more steps you can take to improve your behavior...</header>
 
 <form>
-    <input type="text" id="q1" name="q1" placeholder="One"><br>
-    <input type="text" id="q2" name="q2" placeholder="Two"><br>
-    <input type="text" id="q3" name="q3" placeholder="Three"><br>
-    <a class="continue" href="home_page.html">continue</a>
+    <input class="active" type="text" id="q1" name="q1" placeholder="One"><br>
+    <input class="hide" type="text" id="q2" name="q2" placeholder="Two"><br>
+    <input class="hide" type="text" id="q3" name="q3" placeholder="Three"><br>
+    <a id="cont" class="continue hide" href="home_page.html">continue</a>
 </form>
 </body>
 
@@ -20,8 +20,33 @@
     q7 = document.getElementById("q2");
     q8 = document.getElementById("q3");
 
+    cont = document.getElementById("cont");
+
+    q6.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            q7.classList.remove("hide");
+            q7.classList.add("active");
+        }
+    });
+
+    q7.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            q8.classList.remove("hide");
+            q8.classList.add("active");
+        }
+    });
+
+    q8.addEventListener("keyup", function(e){
+        if (e.keyCode == 13){
+            go();
+        } else {
+            cont.classList.remove("hide");
+            cont.classList.add("active");
+        }
+    });
+
     function go() {
-        window.open("signupForm3.html");
+        location.href = "home_page.html";
         sessionStorage.setItem("q6", q6.value);
         sessionStorage.setItem("q7", q7.value);
         sessionStorage.setItem("q8", q8.value);
