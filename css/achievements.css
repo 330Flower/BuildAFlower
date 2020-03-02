@@ -22,7 +22,7 @@ body {
     grid-auto-rows: auto;
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
-    height: 8vh;
+    min-height: 80px;
     position: fixed;
     width: 100%;
     z-index: 10;
