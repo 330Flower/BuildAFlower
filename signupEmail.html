@@ -68,7 +68,6 @@
     function showPassword() {
         pass.classList.remove("hide");
         pass.classList.add("active");
-
     }
 
     function showConfirm() {
@@ -77,7 +76,9 @@
     }
 
     function nextPage() {
-        window.open("signupForm.html");
+        location.href = "signupForm.html";
+        sessionStorage.setItem('email', email.value);
+        sessionStorage.setItem('pass', pass.value);
     }
 
     function validateEmail(email)

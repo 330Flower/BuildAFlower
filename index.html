@@ -35,12 +35,13 @@ email.addEventListener("keyup", function(e){
         };
     }
 });
+
 pass.addEventListener("keyup", function(e){
     if(e.keyCode == 13) {
         if (pass.value.length >= 8){
-            window.open("home_page.html");
+            nextPage();
         } else {
-            alert("Password too short, needs to be atleast 8 characters !")
+            alert("Password too short, needs to be at least 8 characters !")
         }
     } else {
         if (pass.value.length >= 8){
@@ -62,7 +63,9 @@ function showPassword() {
 }
 
 function nextPage() {
-    window.open("home_page.html");
+    location.href = "home_page.html";
+    sessionStorage.setItem('email', email.value);
+    sessionStorage.setItem('pass', pass.value);
 }
 
 function goSignUp() {
