@@ -25,7 +25,7 @@ body {
     grid-auto-rows: auto;
     grid-template-rows: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
-    height: 8vh;
+    min-height: 77px;
     position: fixed;
     width: 100%;
     z-index: 10;
@@ -69,8 +69,9 @@ body {
                          "checklist stats";
     height: 92vh;
     /* padding: 50px; */
-    padding-top: 8vh;
+    padding-top: 77px;
     min-width: 100vw;
+    overflow: hidden;
 }
 
 .flower {
@@ -82,6 +83,7 @@ body {
     /* background-position: center; */
     /* font-size: 35px; */
     display: grid;
+    /* padding: 20px; */
 }
 
 .stats {
@@ -89,6 +91,9 @@ body {
     background-color: white;
     opacity: .9;
     font-size: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 20px;
     /* background-image: url("https://camo.githubusercontent.com/f32bf0587ce69c563b1f06e13dccffa7c74e4a2f/687474703a2f2f636c2e6c792f696d6167652f316a306a336c31523164325a2f636f6e74656e74");
     background-repeat: no-repeat;
     background-size: cover;
@@ -103,6 +108,7 @@ body {
     background-color: white;
     overflow-y: scroll;
     opacity: .8;
+    padding-bottom: 20px;
 }
 
 
