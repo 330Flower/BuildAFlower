@@ -93,7 +93,7 @@ body {
     font-size: 15px;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
     /* background-image: url("https://camo.githubusercontent.com/f32bf0587ce69c563b1f06e13dccffa7c74e4a2f/687474703a2f2f636c2e6c792f696d6167652f316a306a336c31523164325a2f636f6e74656e74");
     background-repeat: no-repeat;
     background-size: cover;
@@ -108,7 +108,7 @@ body {
     background-color: white;
     overflow-y: scroll;
     opacity: .8;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 
@@ -224,13 +224,17 @@ input {
 	/* overflow: scroll; */
     align-items: center;
     /* background-color: red; */
-    height: 100%;
+    width: 100%;
+    resize: horizontal;
+    overflow: hidden;
+    height: auto;
 }
 
 #svg-1
 {
   margin: 0 auto;
   display: block;
+  max-width: 500px;
 }
 
 .hide{
@@ -267,7 +271,6 @@ input {
   font-size: 15px;
 }
 .js-legend {
-  padding-top: 10px;
   position: relative;
   display: flex;
   max-width: 100%;
