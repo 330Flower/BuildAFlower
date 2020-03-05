@@ -31,7 +31,7 @@
             <div class="flower">
                 <!-- <p> Your Flower </p> -->
                 <div class="svg-container">
-                    <svg id="svg-1" height="500px" width="500px" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <svg id="svg-1" width=100% viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" version="1.1">
                        <circle r="10" cx="50" cy="50" fill="#493211" stroke="#231808" stroke-width=".5"></circle>
                     </svg>
                 </div>
@@ -45,7 +45,7 @@
                     <div class="js-months"></div>
                 </div>
                 <div class="js-legend"></div>
-                <a href="https://github.com/vinnyoodles/reddit-heatmap">Code borrowed from https://github.com/vinnyoodles/reddit-heatmap</a>
+                <a href="https://github.com/vinnyoodles/reddit-heatmap">Inspired by https://github.com/vinnyoodles/reddit-heatmap</a>
             </div>
             <div class="checklist">
                 <div id="listDiv" class="listheader">
@@ -202,7 +202,7 @@ var CELL_SIZE = 18;
 var NUMBER_OF_COLORS = 6;
 
 $(document).ready(function() {
-  fetchRedditData("wsbgod")       // step 2 get data from reddit using input
+  fetchRedditData("srgrafo")       // step 2 get data from reddit using input
     .done(function(posted, comments, upvoted, downvoted) {
       var data = formatData({ posted, comments, upvoted, downvoted }); // step 3 formats the data
       createHeatMap(data, 2020, 2021);  // step 7 loads all the svgs
