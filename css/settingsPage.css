@@ -1,0 +1,87 @@
+* {
+    text-decoration: none;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    background-image: url("../images/Y3.jpg");
+    position: absolute;
+}
+
+.main {
+    padding-top: 325px;
+    padding-left: 815px;
+
+    position: absolute;
+    /*padding-top: 150%;*/
+}
+
+.mybtn {
+    background-color: #00bcd4;
+    /*border: white;*/
+    border-radius: 10px;
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    padding: 15px 30px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px;
+}
+
+.mybtn:hover {
+    background-color: palevioletred;
+    transition: all 0.5s ease;
+}
+
+/*.container{*/
+/*    max-height: 100vh;*/
+/*    overflow: hidden;*/
+/*}*/
+
+.header {
+    background-color: black;
+    opacity: .8;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas: "menu1 menu2 menu3";
+    height: 8vh;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    color: white;
+}
+
+.menu1 {
+    grid-area: menu1;
+    padding-top: 12px;
+}
+
+.menu2 {
+    grid-area: menu2;
+    font-size: 250%;
+    padding-top: 5px;
+    padding-right: 100px;
+}
+
+.menu3 {
+    grid-area: menu3;
+    padding-top: 12px;
+}
+
+.continue {
+    font-size: 200%;
+    color: white;
+    transition: all .5s ease;
+}
+
+.continue:hover {
+    color: #00bcd4;
+    transition: all 0.5s ease;
+}
