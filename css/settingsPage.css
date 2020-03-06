@@ -14,10 +14,15 @@ body {
 }
 
 .main {
-    padding-top: 325px;
-    padding-left: 815px;
-
+    /* padding-top: 325px; */
+    /* padding-left: 815px; */
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
     /*padding-top: 150%;*/
 }
 
@@ -32,6 +37,8 @@ body {
     text-align: center;
     display: inline-block;
     margin: 20px;
+    min-width: 300px;
+    min-height: 35px;
 }
 
 .mybtn:hover {
