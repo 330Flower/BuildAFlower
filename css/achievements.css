@@ -19,8 +19,8 @@ body {
     background-color: black;
     opacity: .8;
     display: grid;
-    grid-auto-rows: auto;
-    grid-template-rows: 25% 50% 25%;
+    grid-template-rows: auto;
+    grid-template-columns: 25% 50% 25%;
     grid-template-areas: "menu1 menu2 menu3";
     min-height: 77px;
     position: fixed;
@@ -29,21 +29,23 @@ body {
     color: white;
 }
 
+
 .menu1 {
     grid-area: menu1;
     padding-top: 12px;
+    margin-left: 80px;
 }
 
 .menu2 {
     grid-area: menu2;
-    font-size: 250%;
-    padding-top: 5px;
+    padding-top: 12px;
 }
 
 
 .menu3 {
     grid-area: menu3;
     padding-top: 12px;
+    margin-right: 50px;
 }
 
 
