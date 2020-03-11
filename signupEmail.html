@@ -48,7 +48,7 @@
     pass2.addEventListener("keyup", function(e){
         if(e.keyCode == 13) {
             if (pass2.value.length >= 8){
-                window.open("signupForm.html");
+                nextPage()
             } else {
                 alert("Password too short, needs to be atleast 8 characters !")
             }

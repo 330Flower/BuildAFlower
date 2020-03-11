@@ -3,7 +3,7 @@ input[placeholder] {font-family: "Montserrat", sans-serif;}
 
 body, html {
     height: 100%;
-    margin: 0px;
+    margin: 0;
 }
 
 /*.mainMenu {*/
@@ -33,7 +33,7 @@ body, html {
 .settings {
     position: absolute;
     z-index: 1;
-    left: 50%;
+    left: 82%;
     top: 35%;
     /*right: 98%;*/
     /*justify-content: center;*/
