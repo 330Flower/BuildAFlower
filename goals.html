@@ -63,11 +63,6 @@
                     <li>Figure out svg and dynamically generate the flower</li>
                     <li>Make a backend for the project</li>
                     <li>Add a real graph and make everything more responsive</li>
-                    <li>Add a real graph and make everything more responsive</li>
-                    <li>Add a real graph and make everything more responsive</li>
-                    <li>Add a real graph and make everything more responsive</li>
-                    <li>Add a real graph and make everything more responsive</li>
-                    <li>Add a real graph and make everything more responsive</li>
             </div>
         </div>
     </div>
@@ -123,6 +118,7 @@ list.addEventListener('click', function(ev) {
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
+  console.log(inputValue);
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -146,8 +142,29 @@ function newElement() {
   }
 }
 
+function addKnown(item) {
+    var li = document.createElement("li");
+    var inputValue = item;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    document.getElementById("myUL").appendChild(li);
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+  }
+}
+
 newInput.addEventListener("keyup", function(e){
     if(e.keyCode == 13) {
+        // alert(sessionStorage.getItem('q6'));
         if(newInput.value != ''){
             newElement();
         } else {
@@ -188,7 +205,18 @@ function getChecked(){
     }
 }
 
+function addKnownItems(){
+    items = ["q5", "q6", "q7", "q8"];
+    for (var i = 0; i < 4; i++){
+        if(sessionStorage.getItem(items[i])){
+            addKnown(sessionStorage.getItem(items[i]));
+        }
+    }
+}
+
+addKnownItems();
 addFlower();
+
 
 setTimeout(function () {
     getChecked();
