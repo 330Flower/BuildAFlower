@@ -25,8 +25,12 @@
     // TODO: add continue emerge when a valid date is input: requires date checking
     q2.addEventListener("keyup", function(e){
         var reg = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/ ;
-        if (e.keyCode == 13 && reg.test(q2.value)){
-            go();
+        if (e.keyCode == 13){
+            if (reg.test(q2.value)) {
+                go();
+            } else {
+                alert("Not a valid date")
+            }
         } else {
             if (reg.test(q2.value)) {
                 cont.classList.remove("hide");
