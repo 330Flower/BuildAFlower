@@ -79,77 +79,77 @@ accordance with Norman’s principles of design. We made use of natural
 mappings, made a minimalistic website which emphasized the important
 parts of our website. Other resolutions include but are not limited to:
 
-  - > Added a username function
+  -  Added a username function
 
-  - > Made pages more accessible.
+  -  Made pages more accessible.
 
-  - > Added more questions to sign up page
+  -  Added more questions to sign up page
 
 **High-Fidelity Prototyping (P5, P6, & P7)**
 
-> A description of the tasks you decided to support. This should include
-> screenshots of your app, with an explanation of how the various app
-> features were intended to support the task.
->
-> Component 1:
->
-> User profiles: The login page allows, in theory, as many users to use
-> the website as want to use it. The personal information of the user is
-> stored using session storage. The questions answered by the user
-> appear in the Goals portion of the website when a user creates a new
-> account. ![](images/image2.png)
->
-> Component 2:
->
-> Gamification: The user aims to complete a set of tasks that grow the
-> size of a flower located on the Goals page of our website. When a task
-> is completed, the flower adds a petal.![](images/image3.png)
->
-> Component 3:
->
-> Data Visualization/Custom Calendar: The last is a cross between the
-> two. While the user cannot directly add tasks to the calendar, and the
-> data visualization is not necessarily tabular or graphical in nature,
-> the User does update this calendar when crossing items off the list.
-> Users can hover over a day-box in the “your stats for this year”
-> section and the number of items crossed off in that day will be shown.
->
-> ![](images/image1.png)
+ A description of the tasks you decided to support. This should include
+ screenshots of your app, with an explanation of how the various app
+ features were intended to support the task.
+
+ *Component 1:*
+
+ User profiles: The login page allows, in theory, as many users to use
+ the website as want to use it. The personal information of the user is
+ stored using session storage. The questions answered by the user
+ appear in the Goals portion of the website when a user creates a new
+ account. ![](images/image2.png)
+
+ *Component 2:*
+
+ Gamification: The user aims to complete a set of tasks that grow the
+ size of a flower located on the Goals page of our website. When a task
+ is completed, the flower adds a petal.![](images/image3.png)
+
+ *Component 3:*
+
+ Data Visualization/Custom Calendar: The last is a cross between the
+ two. While the user cannot directly add tasks to the calendar, and the
+ data visualization is not necessarily tabular or graphical in nature,
+ the User does update this calendar when crossing items off the list.
+ Users can hover over a day-box in the “your stats for this year”
+ section and the number of items crossed off in that day will be shown.
+
+ ![](images/image1.png)
 
 **Reflection**
 
-> What you managed to accomplish in the time you had
->
-> We managed to build a simple and responsive website that helps the
-> user break and form habits. Our site allows the user to establish
-> goals and keep track of their tasks and achievements. We created login
-> and signup forms that are intuitive and respond to user input. We
-> integrated a questionnaire into the signup process to build a profile
-> of the user’s struggles and goals. We use this information to populate
-> the tasks component in our goals page. We implemented a flower SVG
-> that grows as the user completes tasks, incentivising them to continue
-> progressing toward their goals. We added a GitHub activity style
-> calendar to the goals page to allow users to keep track of consistency
-> and activity history. We created an achievements page that allows the
-> user to reflect on their progress. We also made a settings page that
-> allows the user to manage their account.
->
-> The next steps of our app would likely be to add a back end to the
-> website and more securely store our user’s data. A side effect of
-> using cookies to store information is that it’s completely insecure.
-> Adding a relational database to store user data including usernames,
-> passwords, achievements and goals would increase the user capacity and
-> functionality of the website immensely. In addition, the Achievements
-> page is currently a facade. A roadmap to a good future page, nothing
-> more. Implementing a backend to make this page functional would be
-> another next step.
+ What you managed to accomplish in the time you had
+
+ We managed to build a simple and responsive website that helps the
+ user break and form habits. Our site allows the user to establish
+ goals and keep track of their tasks and achievements. We created login
+ and signup forms that are intuitive and respond to user input. We
+ integrated a questionnaire into the signup process to build a profile
+ of the user’s struggles and goals. We use this information to populate
+ the tasks component in our goals page. We implemented a flower SVG
+ that grows as the user completes tasks, incentivising them to continue
+ progressing toward their goals. We added a GitHub activity style
+ calendar to the goals page to allow users to keep track of consistency
+ and activity history. We created an achievements page that allows the
+ user to reflect on their progress. We also made a settings page that
+ allows the user to manage their account.
+
+ The next steps of our app would likely be to add a back end to the
+ website and more securely store our user’s data. A side effect of
+ using cookies to store information is that it’s completely insecure.
+ Adding a relational database to store user data including usernames,
+ passwords, achievements and goals would increase the user capacity and
+ functionality of the website immensely. In addition, the Achievements
+ page is currently a facade. A roadmap to a good future page, nothing
+ more. Implementing a backend to make this page functional would be
+ another next step.
 
 **Links**
 
-> [<span class="underline">https://github.com/330Flower/BuildAFlower/tree/project\_8</span>](https://github.com/330Flower/BuildAFlower/tree/project_8)
->
-> [<span class="underline">https://330flower.github.io/BuildAFlower/</span>](https://330flower.github.io/BuildAFlower/)
->
-> Instructions:
->
-> Works best on Safari full screen at 2880 x 1800
+ [<span class="underline">https://github.com/330Flower/BuildAFlower/tree/project\_8</span>](https://github.com/330Flower/BuildAFlower/tree/project_8)
+
+ [<span class="underline">https://330flower.github.io/BuildAFlower/</span>](https://330flower.github.io/BuildAFlower/)
+
+ *Instructions:*
+
+ Works best on Safari full screen at 2880 x 1800
